@@ -1,0 +1,181 @@
+/* 기본 초기화 */
+* {
+  box-sizing: border-box;
+  margin: 0; 
+  padding: 0;
+}
+
+body {
+  font-family: "Noto Sans KR", sans-serif;
+  background-color: #f6f6f6;
+  color: #333;
+  padding: 20px;
+}
+
+/* 헤더 */
+header {
+  margin-bottom: 15px;
+}
+/* 제목: 초록색 폰트 */
+header h1 {
+  font-size: 3em;
+  margin-bottom: 5px;
+  display: inline-block;
+  background-color: #fff7cc;
+  padding: 8px;
+  color: green;
+}
+header h2 {
+  font-size: 2em;
+  color: #666;
+  background-color: #fff7cc;
+  display: inline-block;
+  padding: 4px 8px;
+}
+h1[contenteditable], h2[contenteditable] {
+  outline: none;
+  cursor: text;
+}
+
+/* 파일선택 + 파일저장 */
+.file-area {
+  margin-bottom: 10px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.file-btn {
+  background-color: #87cefa; /* 하늘색 */
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  display: inline-flex; 
+  align-items: center;
+  justify-content: center;
+  min-width: 100px;
+}
+.file-btn input[type="file"] {
+  position: absolute;
+  left: 0; 
+  top: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+.save-btn {
+  background-color: #b2ecb2; /* 연두색 */
+  color: #333;
+}
+
+/* 컨트롤 패널 */
+.controls {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+.control-col {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 8px;
+  min-width: 200px;
+}
+.control-col.small-col {
+  min-width: 130px;
+}
+.control-col h3 {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  color: #444;
+  text-align: center;
+}
+.control-col select {
+  width: 100%;
+  margin-bottom: 6px;
+  padding: 4px;
+}
+.btn-group {
+  text-align: center;
+}
+
+/* 버튼 스타일 */
+.btn {
+  display: inline-block;
+  margin: 4px 2px;
+  padding: 6px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+}
+.btn:hover {
+  opacity: 0.9;
+}
+.green { background-color: #87ceaf; }
+.blue  { background-color: #51b1e1; }
+.red   { background-color: #ff7e7e; }
+.violet{ background-color: #bb88dd; }
+
+/* 테이블 */
+.table-area {
+  overflow-x: auto; /* 가로 스크롤 */
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+table {
+  width: 100%;
+  min-width: 1200px;
+  border-collapse: collapse;
+}
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px 10px;
+  text-align: center;
+  white-space: nowrap;
+}
+/* 기본 th 배경 */
+th {
+  background-color: #c8e6c9; 
+  font-weight: bold;
+  cursor: pointer; 
+}
+
+/* 합계 열 데이터(볼드) */
+.sum-col {
+  font-weight: bold;
+}
+
+/* 라운드별(1일차,2일차...) 배경 (헤더에만) */
+.round-1일차  { background-color: #ffecec !important; }
+.round-2일차  { background-color: #ecfaff !important; }
+.round-3일차  { background-color: #f0ffe6 !important; }
+.round-4일차  { background-color: #fff0fa !important; }
+.round-5일차  { background-color: #f9ecff !important; }
+
+/* 구장별 배경 (헤더에만) - 1구장,2구장,3구장 */
+.stadium-1구장 { background-color: #ffeef0 !important; }
+.stadium-2구장 { background-color: #e8f6ff !important; }
+.stadium-3구장 { background-color: #fffde5 !important; }
+
+/* 최종순위 헤더: 살구색 배경 + 파랑 글자 */
+.final-rank-header {
+  background-color: #ffd9b3 !important; 
+  color: blue !important;
+  font-weight: bold;
+}
+/* 최종순위 열의 데이터: 빨간 + 볼드체 */
+.final-rank-cell {
+  color: red;
+  font-weight: bold;
+}
+
+/* 일차별 최종합계 헤더( "1일차_합계" 등 ) - 노란색으로 통일 */
+.day-sum-col {
+  background-color: yellow !important;
+}

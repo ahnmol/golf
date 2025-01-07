@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8"/>
+  <title>파크골프 대회 점수표</title>
+  <!-- 외부 CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <!-- 제목: 초록색 폰트 -->
+    <h1 id="pageTitle" contenteditable="true">파크골프 대회</h1>
+    <h2 id="pageSubtitle" contenteditable="true">부제목</h2>
+  </header>
+
+  <!-- 파일 선택 & 파일 저장 -->
+  <section class="file-area">
+    <label class="file-btn">
+      파일선택
+      <input type="file" id="csvFileInput" accept=".csv" />
+    </label>
+    <label class="file-btn save-btn" id="saveFileLabel">
+      파일저장
+    </label>
+  </section>
+
+  <!-- 컨트롤 패널 -->
+  <section class="controls">
+    <!-- 인원관리 -->
+    <div class="control-col small-col">
+      <h3>인원 관리</h3>
+      <button class="btn violet" id="btnAddPerson">+ 인원추가</button>
+    </div>
+
+    <!-- 일차(라운드) -->
+    <div class="control-col">
+      <h3>일차(라운드)</h3>
+      <select id="roundSelect">
+        <option>1일차</option>
+        <option>2일차</option>
+        <option>3일차</option>
+        <option>4일차</option>
+        <option>5일차</option>
+        <option>6일차</option>
+        <option>7일차</option>
+        <option>8일차</option>
+        <option>9일차</option>
+        <option>10일차</option>
+      </select>
+      <div class="btn-group">
+        <button class="btn green" id="btnAddRound">+ 추가</button>
+        <button class="btn blue" id="btnEditRound">수정</button>
+        <button class="btn red" id="btnDelRound">삭제</button>
+      </div>
+    </div>
+
+    <!-- 구장 -->
+    <div class="control-col">
+      <h3>구장</h3>
+      <select id="stadiumRoundSelect"></select>
+      <select id="stadiumSelect"></select>
+      <div class="btn-group">
+        <button class="btn green" id="btnAddStadium">+ 추가</button>
+        <button class="btn blue" id="btnEditStadium">수정</button>
+        <button class="btn red" id="btnDelStadium">삭제</button>
+      </div>
+    </div>
+
+    <!-- 코스 -->
+    <div class="control-col">
+      <h3>코스</h3>
+      <select id="courseRoundSelect"></select>
+      <select id="courseStadiumSelect"></select>
+      <select id="courseSelect"></select>
+      <div class="btn-group">
+        <button class="btn green" id="btnAddCourse">+ 추가</button>
+        <button class="btn blue" id="btnEditCourse">수정</button>
+        <button class="btn red" id="btnDelCourse">삭제</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 테이블 표시 -->
+  <section class="table-area">
+    <table id="scoreTable"></table>
+  </section>
+
+  <!-- 외부 JS -->
+  <script src="script.js"></script>
+</body>
+</html>
