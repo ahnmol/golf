@@ -44,6 +44,33 @@ let tableData  = [];
 // 각 컬럼별 정렬 상태
 let sortState = {};
 
+/*******************************************************************
+ * 0. 테이블 캡처 (JPG) 기능
+ *******************************************************************/
+captureTableBtn.addEventListener('click', () => {
+  captureTableAsJpg();
+});
+
+/**
+ * 테이블을 캡처해 JPG로 다운로드
+ */
+function captureTableAsJpg() {
+  // html2canvas: 특정 DOM 요소를 캡처
+  html2canvas(scoreTable).then(canvas => {
+    // JPG DataURL 생성 (품질 0.95 정도)
+    const dataUrl = canvas.toDataURL('image/jpeg', 0.95);
+
+    // 다운로드용 <a> 태그
+    const link = document.createElement('a');
+    link.href = dataUrl;
+    link.download = 'scoreTable.jpg'; // 파일명
+    // 링크 클릭
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  });
+}
+
 
 /*******************************************************************
  * 1. CSV 불러오기
