@@ -1,7 +1,8 @@
-/* 기본 초기화 */
+/* 기초 reset / 반응형 스타일은 이전과 동일 (간략 예시) */
+
 * {
   box-sizing: border-box;
-  margin: 0; 
+  margin: 0;
   padding: 0;
 }
 
@@ -12,13 +13,11 @@ body {
   padding: 20px;
 }
 
-/* 헤더 */
 header {
   margin-bottom: 15px;
 }
-/* 제목: 초록색 폰트 */
 header h1 {
-  font-size: 3em;
+  font-size: 1.8em;
   margin-bottom: 5px;
   display: inline-block;
   background-color: #fff7cc;
@@ -26,18 +25,14 @@ header h1 {
   color: green;
 }
 header h2 {
-  font-size: 2em;
+  font-size: 1.2em;
   color: #666;
   background-color: #fff7cc;
   display: inline-block;
   padding: 4px 8px;
 }
-h1[contenteditable], h2[contenteditable] {
-  outline: none;
-  cursor: text;
-}
 
-/* 파일선택 + 파일저장 */
+/* 파일선택, 파일저장, 테이블캡처 */
 .file-area {
   margin-bottom: 10px;
   display: flex;
@@ -45,52 +40,57 @@ h1[contenteditable], h2[contenteditable] {
   align-items: center;
 }
 .file-btn {
-  background-color: #87cefa; /* 하늘색 */
+  background-color: #87cefa;
   color: #fff;
   padding: 8px 12px;
   border-radius: 4px;
   cursor: pointer;
-  position: relative;
   display: inline-flex; 
   align-items: center;
   justify-content: center;
   min-width: 100px;
+  position: relative;
 }
 .file-btn input[type="file"] {
   position: absolute;
-  left: 0; 
+  left: 0;
   top: 0;
   opacity: 0;
+  cursor: pointer;
   width: 100%;
   height: 100%;
-  cursor: pointer;
 }
 .save-btn {
-  background-color: #b2ecb2; /* 연두색 */
+  background-color: #b2ecb2;
   color: #333;
 }
+.capture-btn {
+  background-color: #eea2ff; /* 보라-핑크 계열 */
+}
 
-/* 컨트롤 패널 */
+/* 컨트롤 패널: 반응형 예시 (flex-wrap) */
 .controls {
   display: flex;
   gap: 20px;
   margin-bottom: 20px;
+  flex-wrap: wrap;
 }
+
 .control-col {
-  background-color: #ffffff;
+  background-color: #fff;
   border: 1px solid #ddd;
   padding: 10px;
   border-radius: 8px;
   min-width: 200px;
+  margin-bottom: 8px;
 }
 .control-col.small-col {
   min-width: 130px;
 }
 .control-col h3 {
-  font-size: 1.1em;
-  margin-bottom: 10px;
-  color: #444;
   text-align: center;
+  color: #444;
+  margin-bottom: 10px;
 }
 .control-col select {
   width: 100%;
@@ -101,7 +101,7 @@ h1[contenteditable], h2[contenteditable] {
   text-align: center;
 }
 
-/* 버튼 스타일 */
+/* 버튼들 */
 .btn {
   display: inline-block;
   margin: 4px 2px;
@@ -122,7 +122,7 @@ h1[contenteditable], h2[contenteditable] {
 
 /* 테이블 */
 .table-area {
-  overflow-x: auto; /* 가로 스크롤 */
+  overflow-x: auto;
   background-color: #fff;
   padding: 10px;
   border-radius: 8px;
@@ -139,43 +139,47 @@ th, td {
   text-align: center;
   white-space: nowrap;
 }
-/* 기본 th 배경 */
 th {
-  background-color: #c8e6c9; 
+  background-color: #c8e6c9;
   font-weight: bold;
-  cursor: pointer; 
+  cursor: pointer;
 }
 
-/* 합계 열 데이터(볼드) */
+/* 합계 열 */
 .sum-col {
   font-weight: bold;
 }
 
-/* 라운드별(1일차,2일차...) 배경 (헤더에만) */
+/* 라운드별(1일차,2일차...) 배경 */
 .round-1일차  { background-color: #ffecec !important; }
 .round-2일차  { background-color: #ecfaff !important; }
 .round-3일차  { background-color: #f0ffe6 !important; }
-.round-4일차  { background-color: #fff0fa !important; }
-.round-5일차  { background-color: #f9ecff !important; }
-
-/* 구장별 배경 (헤더에만) - 1구장,2구장,3구장 */
+/* 구장별(1구장,2구장,...) 배경 */
 .stadium-1구장 { background-color: #ffeef0 !important; }
 .stadium-2구장 { background-color: #e8f6ff !important; }
 .stadium-3구장 { background-color: #fffde5 !important; }
 
-/* 최종순위 헤더: 살구색 배경 + 파랑 글자 */
+/* 최종순위 헤더 */
 .final-rank-header {
   background-color: #ffd9b3 !important; 
   color: blue !important;
-  font-weight: bold;
 }
-/* 최종순위 열의 데이터: 빨간 + 볼드체 */
+/* 최종순위 데이터 */
 .final-rank-cell {
   color: red;
   font-weight: bold;
 }
 
-/* 일차별 최종합계 헤더( "1일차_합계" 등 ) - 노란색으로 통일 */
+/* 일차별 최종합계 열 */
 .day-sum-col {
   background-color: yellow !important;
+}
+
+/* 반응형 미디어쿼리 예시 */
+@media (max-width: 600px) {
+  body { font-size: 14px; }
+  .file-area { flex-direction: column; }
+  .controls { flex-direction: column; }
+  .table-area { padding: 5px; }
+  th, td { padding: 5px; font-size: 12px; }
 }
